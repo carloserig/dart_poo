@@ -75,4 +75,21 @@ void main() {
 
   var j = u.toJson();
   print('Usuário para Json: $j');
+
+  String responseList = '''
+  [
+    {"nome":"Carlos","idade":30,"ativo":true},
+    {"nome":"Ana","idade":25,"ativo":false}
+  ]
+  ''';
+
+  // Lista de Usuários
+  List lista = jsonDecode(responseList);
+
+  List<Usuario> usuarios =
+      lista.map((e) => Usuario.fromMap(e)).toList();
+
+  print(usuarios);
+  print(usuarios[0]);
+  print(usuarios[1].nome);
 }
