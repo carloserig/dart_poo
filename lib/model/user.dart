@@ -1,17 +1,18 @@
 import 'dart:convert';
 
-class Usuario {
+
+class User {
   final String nome;
   final int idade;
   final bool ativo;
-  Usuario({
+  User({
     required this.nome,
     required this.idade,
     required this.ativo,
   });
- 
+
   @override
-  String toString() => 'Usuario(nome: $nome, idade: $idade, ativo: $ativo)';
+  String toString() => 'User(nome: $nome, idade: $idade, ativo: $ativo)';
 
   Map<String, dynamic> toMap() {
     return {
@@ -21,8 +22,8 @@ class Usuario {
     };
   }
 
-  factory Usuario.fromMap(Map<String, dynamic> map) {
-    return Usuario(
+  factory User.fromMap(Map<String, dynamic> map) {
+    return User(
       nome: map['nome'] ?? '',
       idade: map['idade']?.toInt() ?? 0,
       ativo: map['ativo'] ?? false,
@@ -31,5 +32,5 @@ class Usuario {
 
   String toJson() => json.encode(toMap());
 
-  factory Usuario.fromJson(String source) => Usuario.fromMap(json.decode(source));
+  factory User.fromJson(String source) => User.fromMap(json.decode(source));
 }
